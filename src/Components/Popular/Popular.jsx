@@ -1,4 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+// Default theme
+import "@splidejs/react-splide/css";
+// or only core styles
+import "@splidejs/react-splide/css/core";
 
 function Popular() {
   const [popular, setPopular] = useState([]);
@@ -24,14 +29,22 @@ function Popular() {
   };
 
   return (
-    <>
+    <Splide
+      aria-label="top products"
+      options={{
+        perPage: 3,
+        gap: "1rem",
+      }}
+    >
       {popular.map((p) => (
-        <div key={p.id}>
-          <span>{p.title}</span>
-          <img src={p.image} alt={p.title} />
-        </div>
+        <SplideSlide key={p.id}>
+          <div>
+            <span>{p.title}</span>
+            <img src={p.image} alt={p.title} />
+          </div>
+        </SplideSlide>
       ))}
-    </>
+    </Splide>
   );
 }
 
