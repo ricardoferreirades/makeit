@@ -36,11 +36,11 @@ function Popular() {
         gap: "1rem",
       }}
     >
-      {popular.map((p) => (
-        <SplideSlide key={p.id}>
+      {popular.map((product) => (
+        <SplideSlide key={product.id}>
           <div>
-            <span>{p.title}</span>
-            <img src={p.image} alt={p.title} />
+            <span>{product.title}</span>
+            <img src={product.image} alt={product.title} />
           </div>
         </SplideSlide>
       ))}
