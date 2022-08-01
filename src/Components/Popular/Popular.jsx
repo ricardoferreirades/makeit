@@ -9,16 +9,17 @@ function Popular() {
 
   const getPopular = async () => {
     const api = await fetch(
-      `${process.env.BASE_URL}/random?apikey=${process.env.API_KEY}`
+      `${process.env.BASE_URL}/random?apiKey=${process.env.API_KEY}&number=9`
     );
     const data = await api.json();
     console.log(data);
+    setPopular(data.recipes);
   };
 
   return (
     <>
       {popular.map((p) => (
-        <div key={p.id}>foo</div>
+        <div key={p.id}>{p.title}</div>
       ))}
     </>
   );
