@@ -1,4 +1,3 @@
-# React Boilerplate
+# Make it
 
-This is a boilerplate for a react project.
-This project is served as template for creating react apps from scratch.
+A recipe application built with react and spoonacular API.
