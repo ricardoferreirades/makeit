@@ -1,7 +1,7 @@
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 const Dotenv = require("dotenv-webpack");
-
+const webpack = require("webpack");
 module.exports = {
   entry: "./src/index.js",
   output: {
@@ -10,13 +10,17 @@ module.exports = {
   },
   plugins: [
     new HTMLWebpackPlugin({
-      template: "./src/index.html",
+      template: "public/index.html",
     }),
     new Dotenv(),
+    new webpack.HotModuleReplacementPlugin(),
   ],
   resolve: {
     modules: [__dirname, "src", "node_modules"],
     extensions: ["*", ".js", ".jsx", ".tsx", ".ts"],
+    alias: {
+      "react-dom": "@hot-loader/react-dom",
+    },
   },
   module: {
     rules: [
@@ -39,6 +43,9 @@ module.exports = {
     hints: false,
   },
   devServer: {
+    host: "localhost",
+    port: 3000,
     historyApiFallback: true,
+    open: true,
   },
 };
