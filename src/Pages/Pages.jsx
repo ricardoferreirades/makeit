@@ -3,12 +3,14 @@ import { Routes, Route } from "react-router-dom";
 import Cuisine from "./Cuisine";
 import Home from "./Home";
 import PageNotFound from "./PageNotFound";
+import SearchResults from "./SearchResults";
 
 function Pages() {
   return (
     <Routes>
       <Route exact path="/" element={<Home />} />
       <Route path="/cuisine/:type" element={<Cuisine />} />
+      <Route path="/search/:value" element={<SearchResults />} />
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
