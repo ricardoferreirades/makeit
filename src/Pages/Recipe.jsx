@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { motion } from "framer-motion";
 function Recipe() {
   const [recipe, setRecipe] = useState();
   const [activeTab, setActiveTab] = useState("Ingredients");
@@ -52,10 +53,22 @@ function Recipe() {
         </div>
 
         {activeTab === "Ingredients" && (
-          <div dangerouslySetInnerHTML={{ __html: recipe.summary }}></div>
+          <motion.div
+            animate={{ opacity: 1 }}
+            initial={{ opacity: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+            dangerouslySetInnerHTML={{ __html: recipe.summary }}
+          ></motion.div>
         )}
         {activeTab === "Instructions" && (
-          <div dangerouslySetInnerHTML={{ __html: recipe.instructions }}></div>
+          <motion.div
+            animate={{ opacity: 1 }}
+            initial={{ opacity: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5 }}
+            dangerouslySetInnerHTML={{ __html: recipe.instructions }}
+          ></motion.div>
         )}
       </div>
     </div>
