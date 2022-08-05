@@ -4,6 +4,7 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import Cuisine from "./Cuisine";
 import Home from "./Home";
 import PageNotFound from "./PageNotFound";
+import Recipe from "./Recipe";
 import SearchResults from "./SearchResults";
 
 function Pages() {
@@ -14,6 +15,7 @@ function Pages() {
         <Route exact path="/" element={<Home />} />
         <Route path="/cuisine/:type" element={<Cuisine />} />
         <Route path="/search/:value" element={<SearchResults />} />
+        <Route path="/recipe/:id" element={<Recipe />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </AnimatePresence>

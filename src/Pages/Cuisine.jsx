@@ -14,11 +14,11 @@ function Cuisine() {
         data = await fetch(
           `${process.env.BASE_URL}/complexSearch?apiKey=${process.env.API_KEY}&cuisine=${name}&number=9&`
         );
-        const receips = await data.json();
+        const recipes = await data.json();
 
-        if (receips.results && receips.results.length > 0) {
-          window.localStorage.setItem(name, JSON.stringify(receips.results));
-          setCuisine(receips.results);
+        if (recipes.results && recipes.results.length > 0) {
+          window.localStorage.setItem(name, JSON.stringify(recipes.results));
+          setCuisine(recipes.results);
         }
       }
     } catch (e) {
